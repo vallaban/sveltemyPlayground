@@ -1,13 +1,12 @@
-<!-- Modal.svelte -->
-  <script>
+<script>
 export let show = false;
+ export let onClose = () => {};
 </script> 
 {#if show}
-<div class="modal-backdrop">
-     <div class="modal-content">
-         <slot></slot>
-</div> </div>
-{/if} 
+<div class="modal-backdrop" on:click={onClose}> <div class="modal-content" on:click|stopPropagation> <slot></slot>
+</div> 
+</div> 
+{/if}
 <style>
 .modal-backdrop {
      position: fixed; 
